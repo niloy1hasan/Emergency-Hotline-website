@@ -14,16 +14,17 @@
     <!-- daisyui cdn -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 </head>
-<body>
-    <header class="max-w-[1440px] mx-auto hind-madurai-normal">
+<body class="max-w-[1920px] mx-auto hind-madurai-normal">
+    <header>
         <!-- navbar -->
-        <nav class="flex justify-between items-center bg-white mx-auto py-5 w-11/12">
+        <nav class="flex flex-col-reverse md:flex-row gap-6 justify-between items-center bg-white mx-auto py-5 w-11/12">
             <div class="brand-logo flex gap-3 items-center">
                 <img src="assets/logo.png" alt="" width="50px" height="50px">
-                <img src="assets/emergency-service-logo.png" alt="" height="50px">
+                <img src="assets/emergency-service-logo.png" alt="" height="50px" class="hidden md:block">
+                <div class="font-extrabold text-[#006747] text-2xl inter-normal md:hidden"><p class="">Emergency</p><p>Service</p></div>
             </div>
 
-            <div class="status-bar flex gap-5">
+            <div class="status-bar flex justify-around gap-5">
                 <div class="capsule-box bg-[#41FF6B]/10 rounded-full flex gap-3 justify-center px-7 py-1.5 items-center">
                     <h2 class="font-extrabold inter-normal text-[16px]">0</h2>
                     <img src="assets/heart.png" alt="" height="26px" width="26px">
@@ -43,12 +44,200 @@
          <section class="banner-section flex flex-col justify-center items-center py-5 gap-3 bg-gradient-to-l from-[#013223] via-[#006747] to-[#013223] text-center text-white">
             <img src="assets/logo-dark.png" alt="" height="94px" width="94px">
             <h1 class="font-bold text-[40px]">Emergency Service Directory</h1>
-            <h2 class="font-medium text-[18px]">Government Emergency Services at Your Fingertip – A Project by  Government of the People’s Republic of Bangladesh</h2>
+            <h2 class="font-medium text-[18px] mx-auto w-11/12">Government Emergency Services at Your Fingertip – A Project by  Government of the People’s Republic of Bangladesh</h2>
          </section>
-         
-    </header>
-    <main>
 
+    </header>
+    <main class="bg-[#41FF6B]/10 py-6 md:py-12">
+        <div class="flex flex-col lg:flex-row mx-auto w-11/12 gap-5">
+        <section class="emergency-service-contact-section grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mx-auto w-11/12 gap-4">
+            <div class="contact-card bg-white drop-shadow-[0px_2px_3px_rgba(0,0,0,0.15)] p-4 md:p-6 rounded-[12px] 2xl:max-h-[320px]">
+                <div class="top flex justify-between items-center">
+                    <div class="bg-[#FFE3E2] h-12 md:h-14 w-12 md:w-14 flex justify-center items-center rounded-2xl">
+                        <img src="assets/emergency.png" alt="" class="h-7 w-7">
+                    </div>
+                    <i class="fa-regular fa-heart text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="font-black text-[22px] md:text-2xl pt-4">National Emergency Number</h1>
+                    <h3 class="text-[#5C5C5C] text-[16px] font-medium">National Emergency</h3>
+                    <div class="py-2 md:py-3.5 pb-3">
+                        <h1 class="font-bold text-3xl">999</h1>
+                        <p class="tag-capsule py-1 px-4 md:px-5 text-sm md:text-[16px] inline-block bg-[#F2F2F2] text-[#5C5C5C] rounded-full mt-1">All</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-1 lg:gap-2">
+                    <button class="btn btn-outline !border-[#D4D6D5] !text-[#5C5C5C] !rounded-lg"><i class="fa-regular fa-copy"></i> Copy</button>
+                    <button class="btn !text-white !bg-[#00A63E] border !border-[#00A63E] !rounded-lg"><i class="fa-solid fa-phone"></i> Call</button>
+                </div>
+            </div>
+
+            <!-- temporary -->
+             <div class="contact-card bg-white drop-shadow-[0px_2px_3px_rgba(0,0,0,0.15)] p-4 md:p-6 rounded-[12px] 2xl:max-h-[320px]">
+                <div class="top flex justify-between items-center">
+                    <div class="bg-[#DFEFFF] h-12 md:h-14 w-12 md:w-14 flex justify-center items-center rounded-2xl">
+                        <img src="assets/police.png" alt="" class="h-7 w-7">
+                    </div>
+                    <i class="fa-regular fa-heart text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="font-black text-[22px] md:text-2xl pt-4">Police Helpline Number</h1>
+                    <h3 class="text-[#5C5C5C] text-[16px] font-medium">Police</h3>
+                    <div class="py-2 md:py-3.5 pb-3">
+                        <h1 class="font-bold text-3xl">999</h1>
+                        <p class="tag-capsule py-1 px-4 md:px-5 text-sm md:text-[16px] inline-block bg-[#F2F2F2] text-[#5C5C5C] rounded-full mt-1">Police</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-1 lg:gap-2">
+                    <button class="btn btn-outline !border-[#D4D6D5] !text-[#5C5C5C] !rounded-lg"><i class="fa-regular fa-copy"></i> Copy</button>
+                    <button class="btn !text-white !bg-[#00A63E] border !border-[#00A63E] !rounded-lg"><i class="fa-solid fa-phone"></i> Call</button>
+                </div>
+            </div>
+            <div class="contact-card bg-white drop-shadow-[0px_2px_3px_rgba(0,0,0,0.15)] p-4 md:p-6 rounded-[12px] 2xl:max-h-[320px]">
+                <div class="top flex justify-between items-center">
+                    <div class="bg-[#FFE3E2] h-12 md:h-14 w-12 md:w-14 flex justify-center items-center rounded-2xl">
+                        <img src="assets/fire-service.png" alt="" class="h-7 w-7">
+                    </div>
+                    <i class="fa-regular fa-heart text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="font-black text-[22px] md:text-2xl pt-4">Fire Service Number</h1>
+                    <h3 class="text-[#5C5C5C] text-[16px] font-medium">Fire Service</h3>
+                    <div class="py-2 md:py-3.5 pb-3">
+                        <h1 class="font-bold text-3xl">999</h1>
+                        <p class="tag-capsule py-1 px-4 md:px-5 text-sm md:text-[16px] inline-block bg-[#F2F2F2] text-[#5C5C5C] rounded-full mt-1">Fire</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-1 lg:gap-2">
+                    <button class="btn btn-outline !border-[#D4D6D5] !text-[#5C5C5C] !rounded-lg"><i class="fa-regular fa-copy"></i> Copy</button>
+                    <button class="btn !text-white !bg-[#00A63E] border !border-[#00A63E] !rounded-lg"><i class="fa-solid fa-phone"></i> Call</button>
+                </div>
+            </div>
+            <div class="contact-card bg-white drop-shadow-[0px_2px_3px_rgba(0,0,0,0.15)] p-4 md:p-6 rounded-[12px] 2xl:max-h-[320px]">
+                <div class="top flex justify-between items-center">
+                    <div class="bg-[#FFE3E2] h-12 md:h-14 w-12 md:w-14 flex justify-center items-center rounded-2xl">
+                        <img src="assets/emergency.png" alt="" class="h-7 w-7">
+                    </div>
+                    <i class="fa-regular fa-heart text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="font-black text-[22px] md:text-2xl pt-4">National Emergency Number</h1>
+                    <h3 class="text-[#5C5C5C] text-[16px] font-medium">National Emergency</h3>
+                    <div class="py-2 md:py-3.5 pb-3">
+                        <h1 class="font-bold text-3xl">999</h1>
+                        <p class="tag-capsule py-1 px-4 md:px-5 text-sm md:text-[16px] inline-block bg-[#F2F2F2] text-[#5C5C5C] rounded-full mt-1">All</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-1 lg:gap-2">
+                    <button class="btn btn-outline !border-[#D4D6D5] !text-[#5C5C5C] !rounded-lg"><i class="fa-regular fa-copy"></i> Copy</button>
+                    <button class="btn !text-white !bg-[#00A63E] border !border-[#00A63E] !rounded-lg"><i class="fa-solid fa-phone"></i> Call</button>
+                </div>
+            </div>
+            <div class="contact-card bg-white drop-shadow-[0px_2px_3px_rgba(0,0,0,0.15)] p-4 md:p-6 rounded-[12px] 2xl:max-h-[320px]">
+                <div class="top flex justify-between items-center">
+                    <div class="bg-[#FFE3E2] h-12 md:h-14 w-12 md:w-14 flex justify-center items-center rounded-2xl">
+                        <img src="assets/emergency.png" alt="" class="h-7 w-7">
+                    </div>
+                    <i class="fa-regular fa-heart text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="font-black text-[22px] md:text-2xl pt-4">National Emergency Number</h1>
+                    <h3 class="text-[#5C5C5C] text-[16px] font-medium">National Emergency</h3>
+                    <div class="py-2 md:py-3.5 pb-3">
+                        <h1 class="font-bold text-3xl">999</h1>
+                        <p class="tag-capsule py-1 px-4 md:px-5 text-sm md:text-[16px] inline-block bg-[#F2F2F2] text-[#5C5C5C] rounded-full mt-1">All</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-1 lg:gap-2">
+                    <button class="btn btn-outline !border-[#D4D6D5] !text-[#5C5C5C] !rounded-lg"><i class="fa-regular fa-copy"></i> Copy</button>
+                    <button class="btn !text-white !bg-[#00A63E] border !border-[#00A63E] !rounded-lg"><i class="fa-solid fa-phone"></i> Call</button>
+                </div>
+            </div>
+            <div class="contact-card bg-white drop-shadow-[0px_2px_3px_rgba(0,0,0,0.15)] p-4 md:p-6 rounded-[12px] 2xl:max-h-[320px]">
+                <div class="top flex justify-between items-center">
+                    <div class="bg-[#FFE3E2] h-12 md:h-14 w-12 md:w-14 flex justify-center items-center rounded-2xl">
+                        <img src="assets/emergency.png" alt="" class="h-7 w-7">
+                    </div>
+                    <i class="fa-regular fa-heart text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="font-black text-[22px] md:text-2xl pt-4">National Emergency Number</h1>
+                    <h3 class="text-[#5C5C5C] text-[16px] font-medium">National Emergency</h3>
+                    <div class="py-2 md:py-3.5 pb-3">
+                        <h1 class="font-bold text-3xl">999</h1>
+                        <p class="tag-capsule py-1 px-4 md:px-5 text-sm md:text-[16px] inline-block bg-[#F2F2F2] text-[#5C5C5C] rounded-full mt-1">All</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-1 lg:gap-2">
+                    <button class="btn btn-outline !border-[#D4D6D5] !text-[#5C5C5C] !rounded-lg"><i class="fa-regular fa-copy"></i> Copy</button>
+                    <button class="btn !text-white !bg-[#00A63E] border !border-[#00A63E] !rounded-lg"><i class="fa-solid fa-phone"></i> Call</button>
+                </div>
+            </div>
+            <div class="contact-card bg-white drop-shadow-[0px_2px_3px_rgba(0,0,0,0.15)] p-4 md:p-6 rounded-[12px] 2xl:max-h-[320px]">
+                <div class="top flex justify-between items-center">
+                    <div class="bg-[#FFE3E2] h-12 md:h-14 w-12 md:w-14 flex justify-center items-center rounded-2xl">
+                        <img src="assets/emergency.png" alt="" class="h-7 w-7">
+                    </div>
+                    <i class="fa-regular fa-heart text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="font-black text-[22px] md:text-2xl pt-4">National Emergency Number</h1>
+                    <h3 class="text-[#5C5C5C] text-[16px] font-medium">National Emergency</h3>
+                    <div class="py-2 md:py-3.5 pb-3">
+                        <h1 class="font-bold text-3xl">999</h1>
+                        <p class="tag-capsule py-1 px-4 md:px-5 text-sm md:text-[16px] inline-block bg-[#F2F2F2] text-[#5C5C5C] rounded-full mt-1">All</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-1 lg:gap-2">
+                    <button class="btn btn-outline !border-[#D4D6D5] !text-[#5C5C5C] !rounded-lg"><i class="fa-regular fa-copy"></i> Copy</button>
+                    <button class="btn !text-white !bg-[#00A63E] border !border-[#00A63E] !rounded-lg"><i class="fa-solid fa-phone"></i> Call</button>
+                </div>
+            </div>
+            <div class="contact-card bg-white drop-shadow-[0px_2px_3px_rgba(0,0,0,0.15)] p-4 md:p-6 rounded-[12px] 2xl:max-h-[320px]">
+                <div class="top flex justify-between items-center">
+                    <div class="bg-[#FFE3E2] h-12 md:h-14 w-12 md:w-14 flex justify-center items-center rounded-2xl">
+                        <img src="assets/emergency.png" alt="" class="h-7 w-7">
+                    </div>
+                    <i class="fa-regular fa-heart text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="font-black text-[22px] md:text-2xl pt-4">National Emergency Number</h1>
+                    <h3 class="text-[#5C5C5C] text-[16px] font-medium">National Emergency</h3>
+                    <div class="py-2 md:py-3.5 pb-3">
+                        <h1 class="font-bold text-3xl">999</h1>
+                        <p class="tag-capsule py-1 px-4 md:px-5 text-sm md:text-[16px] inline-block bg-[#F2F2F2] text-[#5C5C5C] rounded-full mt-1">All</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-1 lg:gap-2">
+                    <button class="btn btn-outline !border-[#D4D6D5] !text-[#5C5C5C] !rounded-lg"><i class="fa-regular fa-copy"></i> Copy</button>
+                    <button class="btn !text-white !bg-[#00A63E] border !border-[#00A63E] !rounded-lg"><i class="fa-solid fa-phone"></i> Call</button>
+                </div>
+            </div>
+            <div class="contact-card bg-white drop-shadow-[0px_2px_3px_rgba(0,0,0,0.15)] p-4 md:p-6 rounded-[12px] 2xl:max-h-[320px]">
+                <div class="top flex justify-between items-center">
+                    <div class="bg-[#FFE3E2] h-12 md:h-14 w-12 md:w-14 flex justify-center items-center rounded-2xl">
+                        <img src="assets/emergency.png" alt="" class="h-7 w-7">
+                    </div>
+                    <i class="fa-regular fa-heart text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="font-black text-[22px] md:text-2xl pt-4">National Emergency Number</h1>
+                    <h3 class="text-[#5C5C5C] text-[16px] font-medium">National Emergency</h3>
+                    <div class="py-2 md:py-3.5 pb-3">
+                        <h1 class="font-bold text-3xl">999</h1>
+                        <p class="tag-capsule py-1 px-4 md:px-5 text-sm md:text-[16px] inline-block bg-[#F2F2F2] text-[#5C5C5C] rounded-full mt-1">All</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-1 lg:gap-2">
+                    <button class="btn btn-outline !border-[#D4D6D5] !text-[#5C5C5C] !rounded-lg"><i class="fa-regular fa-copy"></i> Copy</button>
+                    <button class="btn !text-white !bg-[#00A63E] border !border-[#00A63E] !rounded-lg"><i class="fa-solid fa-phone"></i> Call</button>
+                </div>
+            </div>
+            <!-- end temporary -->
+        </section>
+
+        
+        </div>
     </main>
     <script src="js/main.js"></script>
 </body>
