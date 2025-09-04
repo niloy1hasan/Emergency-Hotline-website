@@ -62,7 +62,7 @@ for(const i of copyBtnList){
         } else {
             fallbackCopy(text);
         }
-
+        alert(`The number has been copied: ${text}`);
         copyAmount.innerText = parseInt(copyAmount.innerText)+1;
     });
 }
