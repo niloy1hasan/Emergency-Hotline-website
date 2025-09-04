@@ -23,7 +23,11 @@ function fallbackCopy(text) {
 }
 
 function addOnHistory(item){
-
+    const noHistoryElement = document.getElementById('noHistory');
+    if (noHistoryElement) {
+        noHistoryElement.remove();
+    }
+    
     const element = document.createElement('div');
     element.innerHTML = `
     <div class="flex justify-between items-center bg-[#FAFAFA] rounded-lg py-3 px-3">
@@ -75,6 +79,10 @@ for(const i of callBtnList){
         }
     });
 }
+
+document.getElementById('clear-btn').addEventListener('click', function(event){
+    document.getElementById('history-list-section').innerHTML = `<p id="noHistory" class="text-center text-[#5C5C5C]">No History</p>`;
+});
 
 
 
