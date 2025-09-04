@@ -43,6 +43,13 @@ function addOnHistory(item){
 
 }
 
+function changeState(id){
+    document.getElementById('helplineBtn').classList.remove('bg-green-700', 'text-white', 'py-1.5', 'rounded-full');
+    document.getElementById('allBtn').classList.remove('bg-green-700', 'text-white', 'py-1.5', 'rounded-full');
+    document.getElementById('historyBtn').classList.remove('bg-green-700', 'text-white', 'py-1.5', 'rounded-full'); 
+    document.getElementById(id).classList.add('bg-green-700', 'text-white', 'py-1.5', 'rounded-full');
+}
+
 
 for(const i of copyBtnList){
     i.addEventListener('click', function(event){
@@ -81,7 +88,28 @@ for(const i of callBtnList){
 }
 
 document.getElementById('clear-btn').addEventListener('click', function(event){
+    event.preventDefault();
     document.getElementById('history-list-section').innerHTML = `<p id="noHistory" class="text-center text-[#5C5C5C]">No History</p>`;
+});
+
+document.getElementById('historyBtn').addEventListener('click', function(event){
+    event.preventDefault();
+    changeState('historyBtn');
+    document.getElementById('contact-containerId').classList.add('hidden');
+    document.getElementById('call-history-section').classList.remove('hidden');
+});
+document.getElementById('helplineBtn').addEventListener('click', function(event){
+    event.preventDefault();
+    changeState('helplineBtn');
+    document.getElementById('call-history-section').classList.add('hidden');
+    document.getElementById('contact-containerId').classList.remove('hidden');
+});
+
+document.getElementById('allBtn').addEventListener('click', function(event){
+    event.preventDefault();
+    changeState('allBtn');
+    document.getElementById('contact-containerId').classList.remove('hidden');
+    document.getElementById('call-history-section').classList.remove('hidden');
 });
 
 
