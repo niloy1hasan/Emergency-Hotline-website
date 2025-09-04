@@ -1,5 +1,10 @@
 const loveBtnList = document.getElementsByClassName('love-btn');
 const loveAmount = document.getElementById('love-react-amount');
+const copyAmount = document.getElementById('copy-amount');
+const coinAmount = document.getElementById('coin-amount');
+const helplineTitle = document.getElementsByClassName('helpline-title');
+const copyBtnList = document.getElementsByClassName('copy-btn');
+const callBtnList = document.getElementsByClassName('call-btn');
 
 for(const i of loveBtnList){
     i.addEventListener('click', function(event){
@@ -7,5 +12,69 @@ for(const i of loveBtnList){
         loveAmount.innerText = parseInt(loveAmount.innerText) + 1;
     });
 }
+
+function fallbackCopy(text) {
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand('copy');
+  textarea.remove();
+}
+
+function addOnHistory(item){
+
+    const element = document.createElement('div');
+    element.innerHTML = `
+    <div class="flex justify-between items-center bg-[#FAFAFA] rounded-lg py-3 px-3">
+                    <div class="">
+                        <h2 class="font-bold">${item.title}</h2>
+                        <p class="text-[#5C5C5C]">${item.helpline}</p>
+                    </div>
+                    <p>${item.time}</p>
+                </div>
+    `;
+
+    document.getElementById('history-list-section').appendChild(element);
+
+}
+
+
+for(const i of copyBtnList){
+    i.addEventListener('click', function(event){
+        event.preventDefault();
+        const parent = event.currentTarget.closest('.contact-card');
+        const text = parent.querySelector(".helpline-number").innerText;
+       
+        if (navigator.clipboard?.writeText) {
+            navigator.clipboard.writeText(text).catch(() => fallbackCopy(text));
+        } else {
+            fallbackCopy(text);
+        }
+
+        copyAmount.innerText = parseInt(copyAmount.innerText)+1;
+    });
+}
+
+
+for(const i of callBtnList){
+    i.addEventListener('click', function(event){
+        event.preventDefault();
+        let coin = parseInt(coinAmount.innerText);
+        if(coin>0){
+            const parent = event.currentTarget.closest('.contact-card');
+            const title = parent.querySelector(".helpline-title").innerText;
+            const number = parent.querySelector(".helpline-number").innerText;
+            const text = `📞 Calling ${title} ${number}...`;
+            const time = new Date().toLocaleTimeString();
+            addOnHistory({"title": title,"helpline" : number,"time" : time});
+            alert(text);
+            coinAmount.innerText = coin - 20;
+        } else {
+            alert('❌ You don\'t have enough coins! Making this call requires 20 coins.');
+        }
+    });
+}
+
 
 
