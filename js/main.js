@@ -50,6 +50,16 @@ function changeState(id){
     document.getElementById(id).classList.add('bg-green-700', 'text-white', 'py-1.5', 'rounded-full');
 }
 
+function showCallModal(helplineName, number){
+    const container = document.getElementById('call-modal-container');
+    container.innerHTML = `
+    <img src="assets/person.png" alt="" class="h-16 m-3">
+        <h2 class="font-bold text-lg">${helplineName}</h2>
+        <h1 class="font-light text-2xl">${number}</h1>
+        <p class="font-light text-[16px]">Calling...</p>
+    `;
+    call_modal.showModal();
+}
 
 for(const i of copyBtnList){
     i.addEventListener('click', function(event){
@@ -76,11 +86,12 @@ for(const i of callBtnList){
             const parent = event.currentTarget.closest('.contact-card');
             const title = parent.querySelector(".helpline-title").innerText;
             const number = parent.querySelector(".helpline-number").innerText;
-            const text = `📞 Calling ${title} ${number}...`;
+            
             const time = new Date().toLocaleTimeString();
             addOnHistory({"title": title,"helpline" : number,"time" : time});
-            alert(text);
+            showCallModal(title, number);
             coinAmount.innerText = coin - 20;
+
         } else {
             alert('❌ You don\'t have enough coins! Making this call requires 20 coins.');
         }

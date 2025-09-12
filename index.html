@@ -278,6 +278,28 @@
         </section>
         </div>
     </main>
+    <!-- modal -->
+<dialog id="call_modal" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <!-- call modal container -->
+     <div id="call-modal-container" class="flex justify-center flex-col items-center gap-1">
+        <img src="assets/person.png" alt="" class="h-16 m-3">
+        <h2 class="font-bold text-lg">National Emergency Number</h2>
+        <h1 class="font-light text-2xl">999</h1>
+        <p class="font-light text-[16px]">Calling...</p>
+     </div>
+    <div class="modal-action">
+        <div class="flex items-center justify-around w-full pb-2">
+            <button><i class="fa-solid fa-microphone"></i></button>
+        <form method="dialog" class="">
+            <button class="h-12 w-12 border-0"><img src="assets/phone-call.png" alt=""></button>
+        </form>
+            <button><i class="fa-solid fa-volume-high"></i></button>
+        </div>
+    </div>
+  </div>
+</dialog>
+
     <script src="js/main.js"></script>
 </body>
 </html>
