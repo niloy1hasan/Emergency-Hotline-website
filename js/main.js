@@ -72,7 +72,13 @@ for(const i of copyBtnList){
         } else {
             fallbackCopy(text);
         }
-        alert(`The number has been copied: ${text}`);
+        // alert(`The number has been copied: ${text}`);
+
+        const toast = document.getElementById('copy-message-toast');
+        toast.classList.remove('!hidden');
+        setTimeout(() => {
+            toast.classList.add('!hidden');
+        }, 1200);
         copyAmount.innerText = parseInt(copyAmount.innerText)+1;
     });
 }

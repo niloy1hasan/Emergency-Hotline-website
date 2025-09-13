@@ -290,15 +290,22 @@
      </div>
     <div class="modal-action">
         <div class="flex items-center justify-around w-full pb-2">
-            <button><i class="fa-solid fa-microphone"></i></button>
+            <button class="cursor-pointer"><i class="fa-solid fa-microphone"></i></button>
         <form method="dialog" class="">
-            <button class="h-12 w-12 border-0"><img src="assets/phone-call.png" alt=""></button>
+            <button class="h-12 w-12 border-0 cursor-pointer"><img src="assets/phone-call.png" alt=""></button>
         </form>
-            <button><i class="fa-solid fa-volume-high"></i></button>
+            <button class="cursor-pointer"><i class="fa-solid fa-volume-high"></i></button>
         </div>
     </div>
   </div>
 </dialog>
+
+<!-- toast -->
+<div id="copy-message-toast" class="toast toast-center !hidden !w-full lg:!max-w-[280px]">
+  <div class="alert !bg-gray-700 lg:!bg-gray-900">
+    <span class="text-white"><i class="fa-classic fa-regular fa-clipboard"></i> Number copied to clipboard</span>
+  </div>
+</div>
 
     <script src="js/main.js"></script>
 </body>
