@@ -10,6 +10,7 @@ const volumeBtn = document.getElementById('volume-btn');
 const microphoneBtn = document.getElementById('microphone-btn');
 
 const invervalList  = [];
+const dotInverval = [];
 
 for(const i of loveBtnList){
     i.addEventListener('click', function(event){
@@ -43,12 +44,16 @@ function addOnHistory(item){
     
     const element = document.createElement('div');
     element.innerHTML = `
-    <div class="flex justify-between items-center bg-[#FAFAFA] rounded-lg py-3 px-3">
+    <div class="flex flex-col bg-[#FAFAFA] rounded-lg py-3 px-3">
                     <div class="">
                         <h2 class="font-bold">${item.title}</h2>
                         <p class="text-[#5C5C5C]">${item.helpline}</p>
                     </div>
-                    <p>${item.time}</p>
+                    
+                    <div class="flex justify-between items-center mt-1">
+                        <p><i class="fa-regular fa-clock"></i> ${item.time}</p>
+                        <p class="text-[#5C5C5C]">today</p>
+                    </div>
                 </div>
     `;
 
@@ -69,9 +74,18 @@ function showCallModal(helplineName, number){
     <img src="assets/person.png" alt="" class="h-16 m-3">
         <h2 class="font-bold text-lg">${helplineName}</h2>
         <h1 class="font-light text-2xl">${number}</h1>
-        <p class="font-light text-[16px]">Calling...</p>
+        <p class="font-light text-[16px]">Calling<span id="dot-id" class="inline-block w-1 text-left">.</span></p>
         <audio src="assets/calling-sound.mp3" autoplay loop></audio>
     `;
+
+    let count = 0;
+
+    const dotState = setInterval(()=>{
+        count = (count + 1) % 3;
+        document.getElementById('dot-id').innerText = ".".repeat(count + 1);
+    }, 1000);
+
+    dotInverval.push(dotState);
     callModal.showModal();
 }
 
@@ -184,10 +198,22 @@ microphoneBtn.addEventListener('click', ()=>{
 document.getElementById('call-cencel-btn').addEventListener('click', ()=>{
 const container = document.getElementById('call-modal-container');
     container.innerHTML = ``;
+    
+    for(let i of dotInverval){
+        clearInterval(i);
+    }
+    dotInverval.length = 0;
+    document.getElementById('dot-id').innerText = ".";
 });
 
 document.getElementById('get-coin-btn').addEventListener('click', ()=>{
     const modal = document.getElementById('no_coin_modal');
+    modal.close();
+    earnCoin();
+});
+
+document.getElementById('more-coin-btn').addEventListener('click', ()=>{
+    const modal = document.getElementById('coin_state_modal');
     modal.close();
     earnCoin();
 });
@@ -206,4 +232,18 @@ document.getElementById('skip-btn').addEventListener('click', ()=>{
  }
 
  invervalList.length= 0;
+});
+
+document.getElementById('coin-id').addEventListener('click', ()=> {
+   coin_state_modal.showModal();
+   let coin = parseInt(coinAmount.innerText);
+   document.getElementById('coin-state-amount').innerText = coin;
+
+   if(coin<20){
+    document.getElementById('more-coin-btn').innerText = 'Get Coins';
+    document.getElementById('coin-state-message').innerText = 'You don\'t have enough coins!';
+   } else {
+    document.getElementById('more-coin-btn').innerText = 'Get More Coins';
+    document.getElementById('coin-state-message').innerText = 'You have enough coins!';
+   }
 });

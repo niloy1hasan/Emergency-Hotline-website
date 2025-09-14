@@ -29,7 +29,7 @@
                     <h2 id="love-react-amount" class="font-extrabold inter-normal text-[16px]">0</h2>
                     <img src="assets/heart.png" alt="" height="26px" width="26px">
                 </div>
-                <div class="capsule-box bg-[#41FF6B]/10 rounded-full flex gap-3 justify-center px-7 py-1.5 items-center">
+                <div id="coin-id" class="capsule-box bg-[#41FF6B]/10 cursor-pointer rounded-full flex gap-3 justify-center px-7 py-1.5 items-center">
                     <h2 class="font-extrabold inter-normal text-[16px]" id="coin-amount">100</h2>
                     <img src="assets/coin.png" alt="" height="26px" width="26px">
                 </div>
@@ -263,7 +263,7 @@
             <!-- end temporary -->
         </section>
 
-        <section id="call-history-section" class="call-history-section lg:w-[340px] xl:w-[350px] 2xl:w-[360px] min-h-10 bg-white drop-shadow-[0px_2px_3px_rgba(0,0,0,0.15)] rounded-[12px] mx-auto w-11/12">
+        <section id="call-history-section" class="call-history-section lg:w-[300px] xl:w-[350px] 2xl:w-[360px] min-h-10 bg-white drop-shadow-[0px_2px_3px_rgba(0,0,0,0.15)] rounded-[12px] mx-auto w-11/12">
             <div class="flex justify-between p-3 lg:p-6 items-center">
                 <div class="flex items-center gap-1.5">
                     <i class="fa-regular fa-clock"></i>
@@ -283,10 +283,10 @@
   <div class="modal-box">
     <!-- call modal container -->
      <div id="call-modal-container" class="flex justify-center flex-col items-center gap-1">
-        <img src="assets/person.png" alt="" class="h-16 m-3">
+        <!-- <img src="assets/person.png" alt="" class="h-16 m-3">
         <h2 id="helpLineName" class="font-bold text-lg">National Emergency Number</h2>
         <h1 id="number-id" class="font-light text-2xl">999</h1>
-        <p class="font-light text-[16px]">Calling...</p>
+        <p class="font-light text-[16px]">Calling...</p> -->
      </div>
     <div class="modal-action">
         <div class="flex items-center justify-around w-full pb-2">
@@ -306,7 +306,7 @@
 <dialog id="no_coin_modal" class="modal modal-bottom sm:modal-middle">
   <div class="modal-box">
     <!-- no coin modal container -->
-     <div id="call-modal-container" class="flex justify-center flex-col items-center gap-1">
+     <div id="no-coin-modal-container" class="flex justify-center flex-col items-center gap-1">
         <img src="assets/coins.png" alt="" class="h-16 m-3">
         <h2 id="helpLineName" class="font-bold text-2xl"><span class="text-red-700">!!</span> Not Enough Coins <span class="text-red-700">!!</span></h2>
         <p class="font-light text-lg text-center mt-3"> You don't have enough coins!<br> Making this call requires <b>20 coins</b>.</p>
@@ -326,15 +326,17 @@
 
 <!-- ads modal -->
  <!-- You can open the modal using ID.showModal() method -->
-<button class="btn" onclick="ads_modal.showModal()">open modal</button>
+<!-- <button class="btn" onclick="ads_modal.showModal()">open modal</button> -->
 <dialog id="ads_modal" class="modal">
   <div class="modal-box w-11/12 max-w-5xl">
     <!-- ads modal container -->
-     <div id="call-modal-container" class="flex justify-center flex-col items-center gap-1">
+     <div id="ads-modal-container" class="flex justify-center flex-col items-center gap-1">
         <h2 id="helpLineName" class="font-bold w-full text-xl mb-2">Earn Free Coins</h2>
         <div class="w-full border border-gray-200 rounded-lg p-2 relative">
             <div id="count-down-id" class="flex w-7 h-7 top-[-10px] left-[-10px] bg-white items-center justify-center absolute rounded-full border border-gray-950"><span id="second-id">5</span>s</div>
-            <img src="assets/ad.png" alt="" class="w-full">
+            <div class="w-full flex justify-center items-center h-[300px]">
+                <img src="assets/ad.png" alt="" class="w-20">
+            </div>
         </div>
         <p class="font-light text-sm w-full mt-1"> Watch the Ad to Earn <b>20 Coins</b></p>
      </div>
@@ -346,6 +348,30 @@
       </form>
         <button id="reward-btn" class="btn flex-1/2 !text-white" disabled>Claim Reward</button>
         </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- coin state modal -->
+<!-- Open the modal using ID.showModal() method -->
+<button class="btn" onclick="coin_state_modal.showModal()">open modal</button>
+<dialog id="coin_state_modal" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <!-- no coin modal container -->
+     <div id="coin-state-modal-container" class="flex justify-center flex-col items-center gap-1">
+        <img src="assets/coins.png" alt="" class="h-16 m-3">
+        <h2 id="helpLineName" class="font-bold text-2xl"><span class="text-orange-400">!!</span> <span id="coin-state-amount">100</span> Coins <span class="text-orange-400">!!</span></h2>
+        <p class="font-light text-lg text-center mt-3"> <span id="coin-state-message">You have enough coins!</span> <br> Making a call requires <b>20 coins</b>.</p>
+     </div>
+    <div class="modal-action">
+        <div class="flex items-center justify-around w-full pb-2 gap-2">
+            <form method="dialog" class="flex-1/2">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn w-full btn-outline">Close</button>
+      </form>
+        <button id="more-coin-btn" class="btn flex-1/2 !bg-[#00A63E] !border-[#00A63E] !text-white">Get More Coins</button>
+        </div>
+      
     </div>
   </div>
 </dialog>
