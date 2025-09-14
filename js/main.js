@@ -5,11 +5,22 @@ const coinAmount = document.getElementById('coin-amount');
 const helplineTitle = document.getElementsByClassName('helpline-title');
 const copyBtnList = document.getElementsByClassName('copy-btn');
 const callBtnList = document.getElementsByClassName('call-btn');
+const callModal = document.getElementById('call_modal');
+const volumeBtn = document.getElementById('volume-btn');
+const microphoneBtn = document.getElementById('microphone-btn');
 
 for(const i of loveBtnList){
     i.addEventListener('click', function(event){
         event.preventDefault();
-        loveAmount.innerText = parseInt(loveAmount.innerText) + 1;
+        const likeState = this.innerHTML;
+        if(likeState===`<i class="fa-regular fa-heart text-2xl"></i>`){
+            this.innerHTML = `<i class="fa-solid fa-heart text-2xl text-red-600"></i>`;
+            loveAmount.innerText = parseInt(loveAmount.innerText) + 1;
+        } else {
+            this.innerHTML = `<i class="fa-regular fa-heart text-2xl"></i>`;
+            loveAmount.innerText = parseInt(loveAmount.innerText) - 1;
+        }
+        
     });
 }
 
@@ -58,7 +69,7 @@ function showCallModal(helplineName, number){
         <h1 class="font-light text-2xl">${number}</h1>
         <p class="font-light text-[16px]">Calling...</p>
     `;
-    call_modal.showModal();
+    callModal.showModal();
 }
 
 for(const i of copyBtnList){
@@ -99,7 +110,7 @@ for(const i of callBtnList){
             coinAmount.innerText = coin - 20;
 
         } else {
-            alert('❌ You don\'t have enough coins! Making this call requires 20 coins.');
+            no_coin_modal.showModal();
         }
     });
 }
@@ -130,4 +141,19 @@ document.getElementById('allBtn').addEventListener('click', function(event){
 });
 
 
+volumeBtn.addEventListener('click', ()=>{
+    if(volumeBtn.innerHTML===`<i class="fa-solid fa-volume-high"></i>`){
+        volumeBtn.innerHTML = `<i class="fa-solid fa-volume-low"></i>`;
+    } else {
+        volumeBtn.innerHTML = `<i class="fa-solid fa-volume-high"></i>`;
+    }
+});
+
+microphoneBtn.addEventListener('click', ()=>{
+    if(microphoneBtn.innerHTML === `<i class="fa-solid fa-microphone"></i>`){
+        microphoneBtn.innerHTML = `<i class="fa-solid fa-microphone-slash"></i>`;
+    } else {
+        microphoneBtn.innerHTML = `<i class="fa-solid fa-microphone"></i>`;
+    }
+});
 
