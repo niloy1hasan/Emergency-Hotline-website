@@ -68,6 +68,7 @@ function showCallModal(helplineName, number){
         <h2 class="font-bold text-lg">${helplineName}</h2>
         <h1 class="font-light text-2xl">${number}</h1>
         <p class="font-light text-[16px]">Calling...</p>
+        <audio src="assets/calling-sound.mp3" autoplay loop></audio>
     `;
     callModal.showModal();
 }
@@ -157,3 +158,7 @@ microphoneBtn.addEventListener('click', ()=>{
     }
 });
 
+document.getElementById('call_modal').addEventListener('close', ()=>{
+const container = document.getElementById('call-modal-container');
+    container.innerHTML = ``;
+});
