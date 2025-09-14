@@ -292,7 +292,7 @@
         <div class="flex items-center justify-around w-full pb-2">
             <button class="cursor-pointer" id="microphone-btn"><i class="fa-solid fa-microphone"></i></button>
         <form method="dialog" class="">
-            <button class="h-12 w-12 border-0 cursor-pointer"><img src="assets/phone-call.png" alt=""></button>
+            <button id="call-cencel-btn" class="h-12 w-12 border-0 cursor-pointer"><img src="assets/phone-call.png" alt=""></button>
         </form>
             <button class="cursor-pointer" id="volume-btn"><i class="fa-solid fa-volume-high"></i></button>
         </div>
@@ -317,13 +317,38 @@
         <!-- if there is a button in form, it will close the modal -->
         <button class="btn w-full btn-outline">Close</button>
       </form>
-        <button class="btn flex-1/2 !bg-[#00A63E] !border-[#00A63E] !text-white">Get Coins</button>
+        <button id="get-coin-btn" class="btn flex-1/2 !bg-[#00A63E] !border-[#00A63E] !text-white">Get Coins</button>
         </div>
       
     </div>
   </div>
 </dialog>
 
+<!-- ads modal -->
+ <!-- You can open the modal using ID.showModal() method -->
+<button class="btn" onclick="ads_modal.showModal()">open modal</button>
+<dialog id="ads_modal" class="modal">
+  <div class="modal-box w-11/12 max-w-5xl">
+    <!-- ads modal container -->
+     <div id="call-modal-container" class="flex justify-center flex-col items-center gap-1">
+        <h2 id="helpLineName" class="font-bold w-full text-xl mb-2">Earn Free Coins</h2>
+        <div class="w-full border border-gray-200 rounded-lg p-2 relative">
+            <div id="count-down-id" class="flex w-7 h-7 top-[-10px] left-[-10px] bg-white items-center justify-center absolute rounded-full border border-gray-950"><span id="second-id">5</span>s</div>
+            <img src="assets/ad.png" alt="" class="w-full">
+        </div>
+        <p class="font-light text-sm w-full mt-1"> Watch the Ad to Earn <b>20 Coins</b></p>
+     </div>
+    <div class="modal-action">
+      <div class="flex items-center justify-around w-full pb-2 gap-2">
+            <form method="dialog" class="flex-1/2">
+        <!-- if there is a button in form, it will close the modal -->
+        <button id="skip-btn" class="btn w-full btn-outline">Skip Now</button>
+      </form>
+        <button id="reward-btn" class="btn flex-1/2 !text-white" disabled>Claim Reward</button>
+        </div>
+    </div>
+  </div>
+</dialog>
 
 <!-- toast -->
 <div id="copy-message-toast" class="toast toast-center !hidden !w-full lg:!max-w-[280px]">

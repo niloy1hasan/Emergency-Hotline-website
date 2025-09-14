@@ -9,6 +9,8 @@ const callModal = document.getElementById('call_modal');
 const volumeBtn = document.getElementById('volume-btn');
 const microphoneBtn = document.getElementById('microphone-btn');
 
+const invervalList  = [];
+
 for(const i of loveBtnList){
     i.addEventListener('click', function(event){
         event.preventDefault();
@@ -116,6 +118,27 @@ for(const i of callBtnList){
     });
 }
 
+
+const earnCoin = () => {
+ads_modal.showModal();
+document.getElementById('reward-btn').classList.remove('!border-[#00A63E]', '!bg-[#00A63E]');
+document.getElementById('reward-btn').disabled = true;
+const seconds = document.getElementById('second-id');
+seconds.innerText = 5;
+let i = 4;
+    const countdown = setInterval(() => {
+    if(i>-1) seconds.innerText = i;
+    i--;
+    if (i < -1) {
+        clearInterval(countdown);
+        document.getElementById('reward-btn').classList.add('!border-[#00A63E]', '!bg-[#00A63E]');
+        document.getElementById('reward-btn').disabled = false;
+    }
+}, 1000);
+    invervalList.push(countdown);
+
+}
+
 document.getElementById('clear-btn').addEventListener('click', function(event){
     event.preventDefault();
     document.getElementById('history-list-section').innerHTML = `<p id="noHistory" class="text-center text-[#5C5C5C]">No History</p>`;
@@ -158,7 +181,29 @@ microphoneBtn.addEventListener('click', ()=>{
     }
 });
 
-document.getElementById('call_modal').addEventListener('close', ()=>{
+document.getElementById('call-cencel-btn').addEventListener('click', ()=>{
 const container = document.getElementById('call-modal-container');
     container.innerHTML = ``;
+});
+
+document.getElementById('get-coin-btn').addEventListener('click', ()=>{
+    const modal = document.getElementById('no_coin_modal');
+    modal.close();
+    earnCoin();
+});
+
+document.getElementById('reward-btn').addEventListener('click', ()=> {
+    document.getElementById('ads_modal').close();
+    let coin = parseInt(coinAmount.innerText);
+    coinAmount.innerText = coin + 20;
+    document.getElementById('reward-btn').disabled = true;
+    document.getElementById('reward-btn').classList.remove('!border-[#00A63E]', '!bg-[#00A63E]');
+});
+
+document.getElementById('skip-btn').addEventListener('click', ()=>{
+ for(let i of invervalList){
+    clearInterval(i);
+ }
+
+ invervalList.length= 0;
 });
