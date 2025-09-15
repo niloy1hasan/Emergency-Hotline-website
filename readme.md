@@ -1,72 +1,127 @@
-### Answer the following questions:
+# Emergency Service Directory 🚨
 
-1. What is the difference between **getElementById, getElementsByClassName, and querySelector / querySelectorAll**?
+A practice project that provides easy access to government emergency service numbers in Bangladesh.
+This project simulates **calling, copying numbers, and earning/spending coins** while interacting with services.
 
-#### Answer:
+---
 
-**getElementById:** 
+## 🖼️ Main Interface
 
-It selects only a single and unique element from html by its id.
+![Main Interface](readme-images/main-interface.png)
 
-**getElementsByClassName:**
+---
 
-It selects multiple elements with a specific class name and returns an array like object.
+## 🔹 Navbar
 
-**querySelector:**
+The navbar shows three counters:
 
-It selects only the first element that matches a css selector from html.
-
-**example:** document.querySelector('.first .second');
-
-**querySelectorAll:**
-
-It selects all elements that match a css selector from html and returns an array like object.
-
-**example:** document.querySelectorAll('.first .second');
+* **Love ❤️** → Total services marked as favorite.
+* **Coin 💰** → Current coin balance. Each call costs 20 coins.
+* **Copy 📋** → Total numbers copied by the user.
 
 
+![Navbar](readme-images/navbar.png)
 
-2. How do you **create and insert a new element into the DOM**?
+---
 
-**Answer:**
+## 🔹 Directory Card
 
-**Create:**
+Each service is displayed as a card with:
 
-The createElement() function is used to create an html element and pass the element's tag name as a string.
-const element = document.createElement('div');
-
-**Insert:**
-
-The appendChild() function is used to insert the created element into the DOM and pass the created element as a parameter.
-first.appendChild(element);
+* **Directory Name** (e.g., Police Helpline, Fire Service)
+* **Service Number** (e.g., 999, 106)
+* **Copy Button** → Copies the number to the clipboard.
+* **Call Button** → Opens demo call modal.
 
 
-3. What is **Event Bubbling** and how does it work?
+![Directory Card](readme-images/card.png)
 
-**Answer:**
+---
 
-Event Bubbling is when an event (click, mouseover, keydown) happens on a child element, the event is first handled by the child element, then it passes to its parent, and this continues until it reaches the root element.
+## 🔹 Calling Section (Demo Only)
 
-**example:**  If a button is inside a div, and the div is inside the body. When the button is clicked, the event is handled by the button first, then it bubbles up to the div, and finally to the body.
+* Clicking **Call** opens a **demo call modal**.
+* Shows a **realistic call interface** with service name and number.
+* Plays a **fake ringing sound** for realism.
+* **This is demo only – not a real call.**
+* After ending the call, details are saved in **Call History**.
 
+![Calling Modal](readme-images/call-demo.png)
 
+---
 
-4. What is **Event Delegation** in JavaScript? Why is it useful?
+## 🔹 Call History
 
-**Answer:**
+* Every call is recorded in the history panel.
+* Shows **service name, number, and time of call**.
 
-Event Delegation is used when need to handle events for a large number of similar elements, instead of adding event listener to each element separately, add the event listener to their parent and use event bubbling to handle the event from desired element.
+![Call History](readme-images/call-history.png)
 
-Event Delegation makes the code smaller, cleaner, and easier to debug.
+---
 
+## 🔹 Coin System
 
-5. What is the difference between **preventDefault() and stopPropagation()** methods?
+* **Every call costs 20 coins.**
+* If coins < 20 → Call cannot be placed.
+* A modal appears with **Get Coins** option.
 
+![Low Coin Modal](readme-images/get-coins.png)
 
-**Answer:**
+---
 
-**preventDefault():**
-it stops the default action. For example, after submitting a form, it prevents the page from refreshing or going to a different page.
+### 🟢 Earning Coins
 
-**stopPropagation():**
-it stops the event from bubbling up to parent elements. The event is handled only by the child element where it occurred.
+Two ways to earn coins:
+
+1. **From Navbar Coin Button**
+
+   * Click coin counter → Shows **ad modal**.
+   * Watch ad for 5 seconds.
+   * After timer, **Claim Reward** button activates → Coins added.
+
+   ![Coin Modal](readme-images/ads.png)
+
+2. **After Failed Call (Low Coins)**
+
+   * Same process as above.
+   * Watch ad → Wait 5 seconds → Claim reward → Earn coins.
+
+## 🔹 Responsiveness 📱💻
+
+* The project is **fully responsive** and works smoothly across:
+
+  * Mobile screens
+  * Tablets
+  * Desktops
+* Layouts, modals, and navigation adapt automatically to different screen sizes for the best user experience.
+
+![Responsive Design](readme-images/mobile.png)
+
+---
+
+## ⚙️ How It Works (Flow)
+
+1. User selects a service card.
+2. Clicks **Copy** → Number copied (counter updates).
+3. Clicks **Call** → Opens demo call modal.
+
+   * If coins ≥ 20 → Call starts (demo interface + sound), coins deducted, history updated.
+   * If coins < 20 → "Not enough coins" modal appears.
+4. User watches ad → Waits 5 seconds → **Claim Reward** → Coins added.
+
+---
+
+## 🛠️ Tech Used
+
+* HTML
+* Tailwind CSS
+* DaisyUI
+* JavaScript
+
+---
+
+## 📌 Future Improvements
+
+* Real API integration for calling.
+* User authentication and saved preferences.
+* More services and categories.
